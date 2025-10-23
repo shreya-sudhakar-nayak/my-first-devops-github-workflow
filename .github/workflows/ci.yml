@@ -1,0 +1,30 @@
+name: My First CI Workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      -main
+jobs:
+  build:
+    runs_on: ubuntu-latest
+    steps:
+      # Step 1: Checkout code from repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Print your name and timestamp
+      - name: Print Developer Info
+        run: echo "Hello, I am Shreya! Workflow started at $(date)"
+
+      # Step 3: Simulate build process
+      - name: Simulate Build
+        run: |
+          echo "Building website files..."
+          sleep 3
+          echo "Build complete!"
+
+      # Step 4: Display repository files
+      - name: Show repo files
+        run: ls -la
